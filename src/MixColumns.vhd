@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity MixColumns is
     Port ( 
@@ -10,7 +11,7 @@ end MixColumns;
 
 architecture Behavioral of MixColumns is
 
-    function xtime(x: std_logic_vector(7 downto 0)) return std_logic_vector(7 downto 0) is
+    function xtime(x: std_logic_vector) return std_logic_vector is
     begin
         if x(7) = '1' then
             return (x(6 downto 0) & '0') xor x"1B";
@@ -29,10 +30,10 @@ begin
             b1 := state_in((i*32)+15 downto (i*32)+8);
             b0 := state_in((i*32)+7 downto (i*32)+0);
 
-            state_out((i*32)+31 downto (i*32)+24) <= xtime(b3) xor (xtime(b2) xor b2) xor b1 xor b0;
-            state_out((i*32)+23 downto (i*32)+16) <= b3 xor xtime(b2) xor (xtime(b1) xor b1) xor b0;
-            state_out((i*32)+15 downto (i*32)+8)  <= b3 xor b2 xor xtime(b1) xor (xtime(b0) xor b0);
-            state_out((i*32)+7 downto (i*32)+0)   <= (xtime(b3) xor b3) xor b2 xor b1 xor xtime(b0);
+            state_out((i*32)+31 downto (i*32)+24) <= (xtime(b3) xor (xtime(b2) xor b2)) xor (b1 xor b0);
+            state_out((i*32)+23 downto (i*32)+16) <= (b3 xor xtime(b2)) xor ((xtime(b1) xor b1) xor b0);
+            state_out((i*32)+15 downto (i*32)+8)  <= ((b3 xor b2) xor xtime(b1)) xor (xtime(b0) xor b0);
+            state_out((i*32)+7 downto (i*32)+0)   <= ((xtime(b3) xor b3) xor (b2 xor b1)) xor xtime(b0);
         end loop;
     end process;
 end Behavioral;
