@@ -40,5 +40,5 @@ This core was compiled and verified using Vivado.
 *   **Target Device:** Nexys A7-100T (Artix-7)
 *   **LUTs:** 3793
 *   **Registers:** 267
-*   **Maximum Clock Frequency (Fmax):** [Number] MHz
+*   **Maximum Clock Frequency (Fmax):** 196.93 MHz
 *   **Latency:** 12 Clock Cycles
