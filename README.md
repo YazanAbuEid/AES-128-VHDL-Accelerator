@@ -37,9 +37,9 @@ This core was compiled and verified using Vivado.
 4. Set `tb_AES_Top` as the top module for simulation and run the behavioral simulation.
 
 ## Performance & Utilization
-*(Placeholder: Update this section once you run synthesis)*
-*   **Target Device:** [e.g., Xilinx Artix-7]
-*   **LUTs:** [Number]
-*   **Registers:** [Number]
+
+*   **Target Device:** Nexys A7-100T (Artix-7)
+*   **LUTs:** 3793
+*   **Registers:** 267
 *   **Maximum Clock Frequency (Fmax):** [Number] MHz
 *   **Latency:** 12 Clock Cycles
