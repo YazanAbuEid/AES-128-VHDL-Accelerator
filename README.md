@@ -27,7 +27,9 @@ You can view the full detailed RTL schematic in the [`docs/schematic.pdf`](docs/
 
 ## Simulation and Synthesis
 
-This core was compiled and verified using Vivado. 
+This core was compiled and verified using Vivado.
+
+![Simulation Waveform](docs/waveform.png)
 
 **To run the simulation:**
 1. Create a new RTL project in your IDE.
